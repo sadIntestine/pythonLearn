@@ -9,7 +9,7 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
     # set backgroud color
     bg_color = (230,230,230)
-
+#测试
     # game loop
     while True:
         # supervise keyboard and mouse item
