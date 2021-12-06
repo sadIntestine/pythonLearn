@@ -95,8 +95,8 @@ def get_all_npy(npypath = []):
 
 if __name__=='__main__':
     print("Welcome to MyTools!")
-    txtPath3 = "./example/data/2011.txt"
-    a = txt_read_2dim_num(txtPath3)
-    print(a)
-    b = get_iwant_col_y(a, [0,1])
+    # txtPath3 = "./example/data/2011.txt"
+    # a = txt_read_2dim_num(txtPath3)
+    # print(a)
+    b = get_iwant_col_y([0,1], [])
     print(b[0])
