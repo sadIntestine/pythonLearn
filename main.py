@@ -8,14 +8,20 @@ from utils.db import DbQuery
 def insert(sql):
     return sql
 
+@DbCommit(db='lhrtest.db')
+def insert1111(sql,param = []):
+    print(sql)
+    print(param)
+    return sql,param
+
 
 def resultInsert(result=[[]]):
     for i in result:
-        sql = '\'insert into weather(day,weather,highTemp,lowTemp) values ('+','.join(i)+')\''
+        sql = 'insert into weather(day,weather,highTemp,lowTemp) values (\'' + i[0] + '\',\'' + i[1] + '\',' + i[
+            2] + ',' + i[3] + ');'
         print(sql)
         insert(sql)
-  # sql = '\'insert into weather(day,weather,highTemp,lowTemp) values (?,?,?,?)\',(' + i[0] + ',' + i[1] + ',' + i[
-  #           2] + ',' + i[3]+');'
+# sql = '\'insert into weather(day,weather,highTemp,lowTemp) values (' + ','.join(i) + ')\''
 
 @DbQuery(db='lhrtest.db')
 def select(sql):
@@ -30,8 +36,8 @@ if __name__ == '__main__':
     txt = bug.get_content('http://www.weather.com.cn/weather/101190101.shtml', )
     result = bug.get_data(txt)
     print(result)
-   # resultInsert(result)
-    insert('insert into weather(day,weather,highTemp,lowTemp) values (\'6日\', \'多云\', \'17\', \'5\')')
+    #resultInsert(result)
+    insert1111('\'insert into weather(day,weather,highTemp,lowTemp) values (%s,%s,%s,%s)\'',['6日','多云', 17, 5])
     # bug.write_data(result, 'weather.csv')
     # print(txt)10
     # print_hi('Py+Charm')
