@@ -29,12 +29,12 @@ def select(sql):
 
 
 # Press the green button in the gutter to run the script.
-import bug
+import weatherSpider
 from utils.listTool import get_all_npy
 
 if __name__ == '__main__':
-    txt = bug.get_content('http://www.weather.com.cn/weather/101190101.shtml', )
-    result = bug.get_data(txt)
+    txt = weatherSpider.get_content('http://www.weather.com.cn/weather/101190101.shtml', )
+    result = weatherSpider.get_data(txt)
     print(result)
     #resultInsert(result)
     insert1111('\'insert into weather(day,weather,highTemp,lowTemp) values (%s,%s,%s,%s)\'',['6日','多云', 17, 5])

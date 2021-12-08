@@ -90,9 +90,3 @@ def write_data(data, name):
         f_csv.writerows(data)
 
 
-if __name__ == '__main__':
-    for i in range(1, 17):
-        url = 'http://www.shicimingju.com/shicimark/tangshisanbaishou_' + i + '_0__0.html'
-        result = get_content(url)
-        parse(result);
-        # print(result.encode("gbk", "ignore"))
