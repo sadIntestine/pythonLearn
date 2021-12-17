@@ -1,4 +1,5 @@
-﻿from functools import wraps
+﻿# -*- coding: utf-8 -*-
+from functools import wraps
 import sqlite3, os
 
 
@@ -30,7 +31,7 @@ class DbQuery():
             cursor = conn.cursor()
             cursor.execute(f(*args, **kwargs))
             values = cursor.fetchall()
-            print(values)
+           # print(values)
             conn.commit()
             cursor.close()
             return values

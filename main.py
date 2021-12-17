@@ -1,18 +1,21 @@
 from utils.Log import Log
-
+# -*- coding: utf-8 -*-
+import chardet
 from utils.db import DbCommit
 from utils.db import DbQuery
+import random
 
 
 @DbCommit(db='lhrtest.db')
 def insert(sql):
     return sql
 
+
 @DbCommit(db='lhrtest.db')
-def insert1111(sql,param = []):
+def insert1111(sql, param=[]):
     print(sql)
     print(param)
-    return sql,param
+    return sql, param
 
 
 def resultInsert(result=[[]]):
@@ -21,27 +24,26 @@ def resultInsert(result=[[]]):
             2] + ',' + i[3] + ');'
         print(sql)
         insert(sql)
+
+
 # sql = '\'insert into weather(day,weather,highTemp,lowTemp) values (' + ','.join(i) + ')\''
 
 @DbQuery(db='lhrtest.db')
 def select(sql):
+    print(sql)
     return sql
 
 
-# Press the green button in the gutter to run the script.
-import weatherSpider
-from utils.listTool import get_all_npy
-
 if __name__ == '__main__':
-    txt = weatherSpider.get_content('http://www.weather.com.cn/weather/101190101.shtml', )
-    result = weatherSpider.get_data(txt)
-    print(result)
-    #resultInsert(result)
-    insert1111('\'insert into weather(day,weather,highTemp,lowTemp) values (%s,%s,%s,%s)\'',['6日','多云', 17, 5])
-    # bug.write_data(result, 'weather.csv')
-    # print(txt)10
-    # print_hi('Py+Charm')
-    # sqliteConnection
-    # sqliteConnection.test("夏凡")
-    # lg.run_game()
-    # select('select * from user')
+    num = select('select count(0) from poem')
+    id = random.randrange(0, num[0][0])
+    s = select(str('SELECT * FROM poem ORDER BY RANDOM() limit 1'))
+    print(s)
+    poem = s[0][4].split('。')
+    print(poem)
+    index = random.randrange(0, len(poem)-1)
+    consquence = poem[index].split('，')
+    print(consquence)
+    indexConsquence = random.randrange(0, len(consquence))
+    print(consquence[indexConsquence])
+
