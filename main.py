@@ -30,7 +30,6 @@ def resultInsert(result=[[]]):
 
 @DbQuery(db='lhrtest.db')
 def select(sql):
-    print(sql)
     return sql
 
 
@@ -46,4 +45,7 @@ if __name__ == '__main__':
     print(consquence)
     indexConsquence = random.randrange(0, len(consquence))
     print(consquence[indexConsquence])
+    consquence.remove(consquence[indexConsquence])
+    print(consquence)
+
 
